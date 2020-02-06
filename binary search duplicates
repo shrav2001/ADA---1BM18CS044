@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+int n,a[100],i,key,b,m,e,count=0,flag=0;
+printf("enter the total number of elements in the array\n");
+scanf("%d",&n);
+printf("enter the elements\n");
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("enter the search ele\n");
+scanf("%d",&key);
+b=0;
+e=n-1;
+m=(b+e)/2;
+for(i=0;i<n;i++)
+{
+while(b<=e)
+{
+if(key<a[m])
+{
+e=m-1;
+}
+else
+if(key==a[m])
+{
+flag=1;
+break;
+}
+else
+{
+b=m+1;
+m=(b+e)/2;
+}
+}
+}
+for(int j=0;j<n;j++)
+{
+if(key==a[j])
+{
+printf("start index is %d\n",j);
+while(key==a[j])
+{
+count++;
+j++;
+}
+printf("the end index is %d\n",j-1);
+printf("count is %d",count);
+}
+}
+if(flag==0)
+printf("printing -1");
+return 0;
+}
